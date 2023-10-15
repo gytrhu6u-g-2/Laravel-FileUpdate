@@ -13,7 +13,10 @@
         <form action="{{ route('upload') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div>
-                <input type="file" name="file" required>
+                {{-- accept="image/*"　画像だけを許容 --}}
+                <input type="file" name="file" accept="image/*" required>
+                {{-- ファイルの最大値 --}}
+                <input type="hidden" name="MAX_FILE_SIZE" value="1048576">
             </div>
             <div>
                 <input type="submit" value="送信する">
